@@ -35,4 +35,22 @@ $ grant all privileges on project_db.* to 'python'@'localhost';
 
   위의 맨 첫 번째 에러도 이것 때문이었다!
   
-- AttributeError: Cannot use add() on a ManyToManyField which specifies an intermediary model. Use movieapp.WishList's Manager instead. 아직 해결 못함.
+- QuerySet Replace 해서 새로운 임시 컬럼 만들어 사용하기
+
+```
+  # title 컬럼의 값들을 공백 제거해서 fixed_title이라는 컬럼으로 만들기
+  movielist_replace = Movie.objects.annotate(
+      fixed_title=Replace('title', Value(' '), Value('')), )
+```
+
+- 2개 이상의 QuerySet 합치기
+
+```
+# q1, q2, q3, q4 네 개의 쿼리셋을 하나로 합쳐 merge_query에 저장
+merge_query = q1.union(q2, q3, q4)
+# 또는 리스트로 만들어 병합할 수도 있다
+q1 = list(q1)
+q2 = list(q2)
+result = q1 + q2
+```
+
