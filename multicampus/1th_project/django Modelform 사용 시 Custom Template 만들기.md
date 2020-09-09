@@ -25,7 +25,7 @@ class UserForm(forms.ModelForm):
 CSS Style 적용을 위한 django-widget-tweaks 설치
 
 ```
-$ pip install django-widget-tweakes
+$ pip install django-widget-tweaks
 ```
 
 Settings.py에 추가
