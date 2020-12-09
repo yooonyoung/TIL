@@ -6,7 +6,7 @@ Django는 Nginx 웹 서버와 직접적으로 통신할 수 없어 중간에서 
 
 <h4>Gunicorn 설치 및 시작하기</h4>
 
-venv 가상환경에서 Gunicorn을 설치한다.
+<b>(EC2 서버)</b>venv 가상환경에서 Gunicorn을 설치한다.
 
 ```
 $ pip install Django gunicorn
@@ -37,7 +37,7 @@ $ deactivate
 system에 Gunicorn을 등록하기 위해 아래 파일을 생성해준다.
 
 ```
-$ vi /etc/systemd/system/gunicorn.service
+$ sudo vi /etc/systemd/system/gunicorn.service
 ```
 
 ```
@@ -50,7 +50,7 @@ User=ubuntu
 Group=www-data
 WorkingDirectory=/home/ubuntu/DjangoServer
 ExecStart=/home/ubuntu/DjangoServer/venv_for_django/bin/gunicorn \
-        --workers 3 \
+        --workers 1 \
         --bind unix:/home/ubuntu/DjangoServer/run/gunicorn.sock \
         Project.wsgi:application
 
@@ -59,6 +59,8 @@ WantedBy=multi-user.target
 ```
 
 WorkingDirectory는 <b>프로젝트 루트 폴더</b>, ExecStart 앞부분은 <b>가상환경 안의 gunicorn 경로</b>, 뒷부분은 아까 생성한 <b>run 디렉토리 경로</b>이다.
+
+workers 옵션은 <b>프로세스의 갯수</b>이다. 여러 개의 프로세스로 나눠서 병렬로 처리할 수 있게 되는데, 나는 Django에서 전역 변수를 쓸 일이 있어서 단일 프로세스로 돌리려고 1로 지정했다.
 
 저장한 후 데몬을 구동시키고, 제대로 실행되었는지 확인한다.
 
