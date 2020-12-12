@@ -16,3 +16,4 @@
   git rm --cache 명령어는 Staging Area에서 파일을 제거하고 working directory에는 파일을 유지하는 명령어
 
   위의 명령어를 실행하고 꼭 commit 까지 해주어야 함
+
