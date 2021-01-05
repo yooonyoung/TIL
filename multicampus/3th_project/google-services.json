@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "191291647715",
+    "project_id": "kf99-e286f",
+    "storage_bucket": "kf99-e286f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:191291647715:android:513c911236771f48d7c7d6",
+        "android_client_info": {
+          "package_name": "com.multicampus.kf99"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "191291647715-2jn3n5tovog74vk66ce4k3cpkuvru344.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCOI0HVEhV8DXdkCz4giPEAc3iDiS5kdYY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "191291647715-2jn3n5tovog74vk66ce4k3cpkuvru344.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
